@@ -4,13 +4,21 @@ function criaCalculadora(){
         display: document.querySelector('.display'),
 
         start(){
-            alert('foi iniciado!')
+            this.clickButtons();
         },
 
         clickButtons(){
-            document.addEventListener('click', function(event){
-                const element = event.el;
+            document.addEventListener('click', (event)=>{
+                const element = event.target;
+
+                if(element.classList.contains('btn-num')){
+                    this.btnToDisplay(element.innerHTML);
+                };
             });
+        },
+
+        btnToDisplay(value){
+            this.display.value += value
         },
 
     };
